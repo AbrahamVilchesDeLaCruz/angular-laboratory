@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { CommonModule } from "@angular/common";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-login",
@@ -12,6 +13,8 @@ import { CommonModule } from "@angular/common";
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  loading = false;
+  subscription: Subscription | null = null;
 
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -23,11 +26,28 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-      if (this.auth.login({ username, password })) {
-        this.router.navigate(["/dashboard"]);
-      } else {
-        alert("Invalid credentials");
-      }
+      this.loading = true;
+      this.subscription = this.auth.login({ username, password }).subscribe({
+        next: (success) => {
+          if (success) {
+            this.router.navigate(["/dashboard"]);
+          } else {
+            alert("Credenciales inválidas");
+          }
+        },
+        error: (error) => {
+          alert("Hubo un error con la autenticación");
+        },
+        complete: () => {
+          this.loading = false;
+        },
+      });
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }

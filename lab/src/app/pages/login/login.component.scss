@@ -12,7 +12,6 @@
   display: block;
 }
 
-
 .login-form {
   width: 100%;
   max-width: 400px;
@@ -88,8 +87,8 @@
 .card-info {
   margin-bottom: 20px;
   padding: 10px 15px;
-  background-color: #f9f9f9; /* Fondo claro */
-  border-left: 4px solid #007bff; /* Línea azul a la izquierda */
+  background-color: #f9f9f9;
+  border-left: 4px solid #007bff;
   border-radius: 5px;
   font-size: 14px;
   color: #333;
@@ -98,4 +97,17 @@
     margin: 0;
     line-height: 1.5;
   }
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.giphy-embed {
+  width: 50px;
+  height: 50px;
 }
