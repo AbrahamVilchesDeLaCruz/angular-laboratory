@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PublicMenuComponent } from '../../menu/public-menu/public-menu.component';
 
 @Component({
@@ -8,5 +8,5 @@ import { PublicMenuComponent } from '../../menu/public-menu/public-menu.componen
   styleUrl: './public-header.component.scss'
 })
 export class PublicHeaderComponent {
-
+  @Input() title: string = '';
 }

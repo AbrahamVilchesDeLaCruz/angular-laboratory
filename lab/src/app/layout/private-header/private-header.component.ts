@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import { PrivateMenuComponent } from "../../menu/private-menu/private-menu.component";
@@ -10,6 +10,8 @@ import { PrivateMenuComponent } from "../../menu/private-menu/private-menu.compo
   styleUrl: "./private-header.component.scss",
 })
 export class PrivateHeaderComponent {
+  @Input() title: string = "";
+
   constructor(public auth: AuthService, private router: Router) {}
 
   logout() {
