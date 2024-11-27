@@ -1,5 +1,6 @@
 <main class="main">
-  <app-public-header></app-public-header>
+  <app-public-header *ngIf="!isLoggedIn"></app-public-header>
+  <app-private-header *ngIf="isLoggedIn"></app-private-header>
   <div class="content">
     <router-outlet></router-outlet>
     <!-- Aquí se renderizan los componentes -->

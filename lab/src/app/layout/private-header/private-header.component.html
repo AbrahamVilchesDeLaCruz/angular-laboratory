@@ -1,5 +1,5 @@
-<div>
-  <span>Logo</span>
-  <span>{{ auth.getUsername() }}</span>
+<div class="private-header">
+  <app-private-menu></app-private-menu>
+  <p>{{ auth.getUsername() }}</p>
   <button (click)="logout()">Logout</button>
 </div>
