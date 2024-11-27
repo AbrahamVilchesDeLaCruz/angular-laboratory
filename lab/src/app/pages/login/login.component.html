@@ -1,5 +1,7 @@
 <div class="card-info" *ngIf="!loading">
-  <p>El correo es: master&#64;lemoncode.net y la contraseña: 12345678</p>
+  <mat-card-content>
+    <p>El correo es: master&#64;lemoncode.net y la contraseña: 12345678</p>
+  </mat-card-content>
 </div>
 
 <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!loading">

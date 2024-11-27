@@ -4,12 +4,13 @@ import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { CommonModule } from "@angular/common";
 import { Subscription } from "rxjs";
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss",
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, MatCardModule],
 })
 export class LoginComponent {
   loginForm: FormGroup;
